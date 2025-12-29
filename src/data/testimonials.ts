@@ -17,7 +17,7 @@ export const testimonials: ITestimonial[] = [
     {
         name: 'Emily Johnson',
         role: 'Product Manager',
-        message: `${siteDetails.siteName} is revolutionizing personal finance management. Its intuitive design and powerful features make it an indispensable tool for anyone serious about financial growth.`,
+        message: `${siteDetails.siteName} is revolutionizing personal RENT management. Its intuitive design and powerful features make it an indispensable tool for anyone serious about financial growth.`,
         avatar: '/images/testimonial-3.webp',
     },
 ];
