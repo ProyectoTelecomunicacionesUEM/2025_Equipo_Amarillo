@@ -1,9 +1,20 @@
-import NextAuth from "next-auth";
+import NextAuth, { type DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "@node-rs/bcrypt";
 import { pool } from "@/lib/db";
 
 type Role = "user" | "admin";
+
+type AppUser = {
+  id: string;
+  email: string;
+  name: string | null;
+  role: Role;
+};
+
+type AppToken = {
+  role?: Role;
+};
 
 const handler = NextAuth({
   providers: [
@@ -19,47 +30,32 @@ const handler = NextAuth({
         const { email, password } = credentials;
         if (typeof email !== "string" || typeof password !== "string") return null;
 
-        // ✅ 2 DEMOS (sin selector)
+        // ✅ DEMOS
         if (email === "admin@iotcar.com" && password === "Admin123!") {
-          return { id: "demo-admin", email, name: "Admin Demo", role: "admin" as Role };
+          return { id: "demo-admin", email, name: "Admin Demo", role: "admin" } satisfies AppUser;
         }
-
         if (email === "user@iotcar.com" && password === "User123!") {
-          return { id: "demo-user", email, name: "User Demo", role: "user" as Role };
+          return { id: "demo-user", email, name: "User Demo", role: "user" } satisfies AppUser;
         }
 
-        // ✅ Login real por BD
-        // Nota: si NO existe la columna role, el try/catch hace fallback
-        let user: any = null;
+        // ✅ Login real por BD (tu tabla NO tiene role, así que role = "user")
+        const { rows } = await pool.query(
+          "SELECT id, email, password_hash, name FROM users WHERE email=$1 LIMIT 1",
+          [email]
+        );
 
-        try {
-          const { rows } = await pool.query(
-            "SELECT id, email, password_hash, name, role FROM users WHERE email=$1 LIMIT 1",
-            [email]
-          );
-          user = rows[0];
-        } catch {
-          // Fallback si la columna role no existe todavía
-          const { rows } = await pool.query(
-            "SELECT id, email, password_hash, name FROM users WHERE email=$1 LIMIT 1",
-            [email]
-          );
-          user = rows[0];
-        }
-
+        const user = rows[0];
         if (!user) return null;
 
         const ok = await compare(password, user.password_hash);
         if (!ok) return null;
 
-        const role: Role = user.role === "admin" ? "admin" : "user";
-
         return {
           id: String(user.id),
           email: user.email,
           name: user.name ?? null,
-          role,
-        };
+          role: "user",
+        } satisfies AppUser;
       },
     }),
   ],
@@ -69,11 +65,17 @@ const handler = NextAuth({
 
   callbacks: {
     async jwt({ token, user }) {
-      if (user) (token as any).role = (user as any).role ?? "user";
+      if (user) {
+        const u = user as AppUser;
+        (token as AppToken).role = u.role;
+      }
       return token;
     },
     async session({ session, token }) {
-      if (session.user) (session.user as any).role = (token as any).role ?? "user";
+      const t = token as AppToken;
+      if (session.user) {
+        (session.user as DefaultSession["user"] & { role?: Role }).role = t.role ?? "user";
+      }
       return session;
     },
   },

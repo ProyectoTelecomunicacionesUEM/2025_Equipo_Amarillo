@@ -3,6 +3,9 @@
 import { FormEvent, useState } from "react";
 import { signIn, getCsrfToken, getSession } from "next-auth/react";
 
+type Role = "user" | "admin";
+type SessionUserWithRole = { role?: Role };
+
 export default function LoginPage() {
   const [email, setEmail] = useState("user@iotcar.com");
   const [password, setPassword] = useState("User123!");
@@ -31,10 +34,8 @@ export default function LoginPage() {
         return;
       }
 
-      // 👉 aquí el único cambio importante
       const session = await getSession();
-
-      const role = (session?.user as any)?.role;
+      const role = (session?.user as SessionUserWithRole | undefined)?.role;
 
       if (role === "admin") {
         window.location.href = "/admin";
