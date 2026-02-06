@@ -4,6 +4,15 @@ import { z } from 'zod';
 import { Pool } from 'pg';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Clave secreta para autenticación (Configúrala en tu archivo .env como API_SECRET)
+const API_SECRET = process.env.API_SECRET || 'mi-clave-secreta-por-defecto';
+
+function isAuthenticated(request: NextRequest) {
+  const authHeader = request.headers.get('authorization');
+  // Verifica que el header sea "Bearer <TU_CLAVE>"
+  return authHeader === `Bearer ${API_SECRET}`;
+}
+
 // Esquema de validación de datos entrantes
 
 const DataSchema = z.object({
@@ -35,6 +44,9 @@ const pool = new Pool({
 // Manejar POST Method API. Método para recibir y almacenar datos.
 
 export async function POST(request: NextRequest) {
+  if (!isAuthenticated(request)) {
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+  }
 //export async function POST(request) {
   try {
 
@@ -86,6 +98,12 @@ export async function POST(request: NextRequest) {
 // export const GET = () => NextResponse.json({ error: 'Método Obtenerno NO permitido' }, { status: 405 });
 
 export async function GET(request: NextRequest) {
+  if (!isAuthenticated(request)) {
+    return new NextResponse(
+      `<pre>Error: No autorizado.</pre>`,
+      { status: 401, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+    );
+  }
   try {
     const { searchParams } = new URL(request.url);
     const device = searchParams.get('device');
@@ -150,6 +168,9 @@ export const PATCH = () => NextResponse.json({ error: 'Método Modificar NO perm
 // curl.exe -X DELETE "http://localhost:3000/api/receive-data?device=12" 
 
 export async function DELETE(request: NextRequest) {
+  if (!isAuthenticated(request)) {
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
+  }
   try {
     const { searchParams } = new URL(request.url);
     const device = searchParams.get('device');
