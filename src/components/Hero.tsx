@@ -1,9 +1,56 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
 
+const OVERLAY_DELAY_MS = 8000;
+
 const Hero: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const pauseTimerRef = useRef<number | null>(null);
+
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const clearPauseTimer = () => {
+    if (pauseTimerRef.current) {
+      window.clearTimeout(pauseTimerRef.current);
+      pauseTimerRef.current = null;
+    }
+  };
+
+  const startPauseTimer = () => {
+    clearPauseTimer();
+    pauseTimerRef.current = window.setTimeout(() => {
+      // si sigue pausado al cabo de 8s, mostramos overlay
+      const v = videoRef.current;
+      if (v && v.paused) setShowOverlay(true);
+    }, OVERLAY_DELAY_MS);
+  };
+
+  const handlePlay = () => {
+    setShowOverlay(false);
+    clearPauseTimer();
+  };
+
+  const handlePause = () => {
+    startPauseTimer();
+  };
+
+  const handleOverlayClick = () => {
+    // Al hacer click en la imagen, quitamos overlay y reproducimos
+    setShowOverlay(false);
+    clearPauseTimer();
+    videoRef.current?.play();
+  };
+
+  useEffect(() => {
+    return () => {
+      clearPauseTimer();
+    };
+  }, []);
+
   return (
     <section
       id="hero"
@@ -42,24 +89,50 @@ const Hero: React.FC = () => {
             className="border rounded-md px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary"
           />
 
-          <button
-            className="bg-primary text-white rounded-md px-6 py-3 text-sm font-medium hover:opacity-90 transition"
-          >
+          <button className="bg-primary text-white rounded-md px-6 py-3 text-sm font-medium hover:opacity-90 transition">
             Buscar coche
           </button>
         </div>
 
-        <Image
-          src={heroDetails.centerImageSrc}
-          width={720}
-          height={420}
-          quality={90}
-          sizes="(max-width: 768px) 100vw, 720px"
-          priority
-          unoptimized
-          alt="car rental hero"
-          className="relative mt-12 md:mt-16 mx-auto z-10 rounded-xl"
-        />
+        {/* VIDEO con overlay */}
+        <div className="relative mt-12 md:mt-16 mx-auto z-10 rounded-xl overflow-hidden w-full max-w-[720px]">
+          <video
+            ref={videoRef}
+            src="/videos/hero.mp4"
+            controls
+            playsInline
+            preload="metadata"
+            onPlay={handlePlay}
+            onPause={handlePause}
+            className="w-full h-auto block"
+          />
+
+          {showOverlay && (
+            <button
+              type="button"
+              onClick={handleOverlayClick}
+              className="absolute inset-0 w-full h-full"
+              aria-label="Reproducir vídeo"
+              title="Reproducir"
+            >
+              <Image
+                src="/images/hero-poster.webp"
+                alt="Vista previa"
+                fill
+                priority={false}
+                className="object-cover"
+              />
+              {/* opcional: un pequeño degradado para que se vea más pro */}
+              <div className="absolute inset-0 bg-black/10" />
+              {/* opcional: icono play “pro” */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-white/90 backdrop-blur rounded-full px-5 py-3 font-semibold shadow">
+                  ▶ Reproducir
+                </div>
+              </div>
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );
