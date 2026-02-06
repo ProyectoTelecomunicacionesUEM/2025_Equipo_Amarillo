@@ -1,37 +1,37 @@
 import { IMenuItem, ISocials } from "@/types";
 
 export const footerDetails: {
-    subheading: string;
-    quickLinks: IMenuItem[];
-    email: string;
-    telephone: string;
-    socials: ISocials;
+  subheading: string;
+  quickLinks: IMenuItem[];
+  email: string;
+  telephone: string;
+  socials: ISocials;
 } = {
-    subheading: "Empowering businesses with cutting-edge financial technology solutions.",
-    quickLinks: [
-        {
-            text: "Features",
-            url: "#features"
-        },
-        {
-            text: "Pricing",
-            url: "#pricing"
-        },
-        {
-            text: "Testimonials",
-            url: "#testimonials"
-        }
-    ],
-    email: 'address@yoursite.com',
-    telephone: '+1 (123) 456-7890',
-    socials: {
-        // github: 'https://github.com',
-        // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
-        facebook: 'https://facebook.com',
-        // youtube: 'https://youtube.com',
-        linkedin: 'https://www.linkedin.com',
-        // threads: 'https://www.threads.net',
-        instagram: 'https://www.instagram.com',
-    }
-}
+  subheading:
+    "Alquiler de coches inteligente con IoT. Reserva en minutos, gestiona tu vehículo desde la app y conduce con total tranquilidad.",
+
+  quickLinks: [
+    {
+      text: "Buscar coches",
+      url: "#hero",
+    },
+    {
+      text: "Tarifas",
+      url: "#pricing",
+    },
+    {
+      text: "Opiniones",
+      url: "#testimonials",
+    },
+  ],
+
+  email: "soporte@iotcar.com",
+  telephone: "+34 600 123 456",
+
+  socials: {
+    twitter: "https://twitter.com",
+    facebook: "https://facebook.com",
+    linkedin: "https://www.linkedin.com",
+    instagram: "https://www.instagram.com",
+  },
+};

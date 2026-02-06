@@ -21,8 +21,9 @@ const Footer: React.FC = () => {
                         {footerDetails.subheading}
                     </p>
                 </div>
+
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+                    <h4 className="text-lg font-semibold mb-4">Enlaces</h4>
                     <ul className="text-foreground-accent">
                         {footerDetails.quickLinks.map(link => (
                             <li key={link.text} className="mb-2">
@@ -31,12 +32,21 @@ const Footer: React.FC = () => {
                         ))}
                     </ul>
                 </div>
+
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+                    <h4 className="text-lg font-semibold mb-4">Contacto</h4>
 
-                    {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
+                    {footerDetails.email && (
+                        <a href={`mailto:${footerDetails.email}`} className="block text-foreground-accent hover:text-foreground">
+                            Email: {footerDetails.email}
+                        </a>
+                    )}
 
-                    {footerDetails.telephone && <a href={`tel:${footerDetails.telephone}`} className="block text-foreground-accent hover:text-foreground">Phone: {footerDetails.telephone}</a>}
+                    {footerDetails.telephone && (
+                        <a href={`tel:${footerDetails.telephone}`} className="block text-foreground-accent hover:text-foreground">
+                            Tel: {footerDetails.telephone}
+                        </a>
+                    )}
 
                     {footerDetails.socials && (
                         <div className="mt-5 flex items-center gap-5 flex-wrap">
@@ -57,10 +67,11 @@ const Footer: React.FC = () => {
                     )}
                 </div>
             </div>
+
             <div className="mt-8 md:text-center text-foreground-accent px-6">
-                <p>Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All rights reserved.</p>
-                <p className="text-sm mt-2 text-gray-500">Made with &hearts; by <a href="https://nexilaunch.com" target="_blank">Nexi Launch</a></p>
-                <p className="text-sm mt-2 text-gray-500">UI kit by <a href="https://ui8.net/youthmind/products/fintech-finance-mobile-app-ui-kit" target="_blank">Youthmind</a></p>
+                <p>Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. Todos los derechos reservados.</p>
+                <p className="text-sm mt-2 text-gray-500">Hecho con &hearts; por <a href="https://nexilaunch.com" target="_blank">Nexi Launch</a></p>
+                <p className="text-sm mt-2 text-gray-500">UI kit por <a href="https://ui8.net/youthmind/products/fintech-finance-mobile-app-ui-kit" target="_blank">Youthmind</a></p>
             </div>
         </footer>
     );

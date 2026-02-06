@@ -2,24 +2,34 @@ import { IFAQ } from "@/types";
 import { siteDetails } from "./siteDetails";
 
 export const faqs: IFAQ[] = [
-    {
-        question: `Is ${siteDetails.siteName} secure?`,
-        answer: 'Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.',
-    },
-    {
-        question: `Can I use ${siteDetails.siteName} on multiple devices?`,
-        answer: 'Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.',
-    },
-    {
-        question: 'Can I connect all my bank accounts?',
-        answer: `Yes! ${siteDetails.siteName} supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`
-    },
-    {
-        question: 'Do I need any financial expertise to use the investing features?',
-        answer: 'Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.',
-    },
-    {
-        question: 'What if I need help using the app?',
-        answer: 'Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.'
-    }
+  {
+    question: `¿Qué necesito para alquilar un coche con ${siteDetails.siteName}?`,
+    answer:
+      "Necesitas un carnet de conducir válido, un documento de identidad o pasaporte y una tarjeta bancaria a nombre del conductor principal.",
+  },
+  {
+    question: "¿Está incluido el seguro en el precio?",
+    answer:
+      `Sí. Todas las reservas en ${siteDetails.siteName} incluyen seguro básico. También puedes añadir coberturas adicionales durante el proceso de reserva.`,
+  },
+  {
+    question: "¿Hay límite de kilometraje?",
+    answer:
+      `La mayoría de nuestros vehículos incluyen kilometraje ilimitado. En caso de que exista alguna limitación, se mostrará claramente antes de confirmar la reserva.`,
+  },
+  {
+    question: "¿Puedo cancelar o modificar mi reserva?",
+    answer:
+      `Sí. En ${siteDetails.siteName} puedes modificar o cancelar tu reserva fácilmente desde tu cuenta, siempre que se realice dentro del plazo indicado en tu tarifa.`,
+  },
+  {
+    question: "¿Dónde recojo y devuelvo el coche?",
+    answer:
+      `Puedes recoger y devolver el vehículo en nuestras oficinas de ciudad y aeropuertos. La ubicación exacta se muestra durante el proceso de reserva.`,
+  },
+  {
+    question: "¿Hay asistencia en carretera?",
+    answer:
+      `Sí. Todas las reservas incluyen asistencia en carretera 24/7 para que puedas viajar con total tranquilidad.`,
+  },
 ];
