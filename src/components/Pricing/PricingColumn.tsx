@@ -22,7 +22,8 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
         <h3 className="text-2xl font-semibold mb-4">{name}</h3>
 
         <p className="text-3xl md:text-5xl font-bold mb-6">
-          <span className={clsx({ "text-secondary": highlight })}>
+          {/* CAMBIO: todos los precios con el mismo color */}
+          <span className="text-secondary">
             {typeof price === "number" ? `${price} €` : price}
           </span>
           {typeof price === "number" && (
@@ -30,14 +31,9 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
           )}
         </p>
 
+        {/* CAMBIO: todos los botones amarillos */}
         <button
-          className={clsx(
-            "w-full py-3 px-4 rounded-full transition-colors",
-            {
-              "bg-primary hover:bg-primary-accent": highlight,
-              "bg-hero-background hover:bg-gray-200": !highlight,
-            }
-          )}
+          className="w-full py-3 px-4 rounded-full transition-colors bg-primary hover:bg-primary-accent"
         >
           Reservar ahora
         </button>

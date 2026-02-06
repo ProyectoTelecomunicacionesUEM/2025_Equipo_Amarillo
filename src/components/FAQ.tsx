@@ -13,7 +13,7 @@ const FAQ: React.FC = () => {
           <p className="hidden lg:block text-foreground-accent">PREGUNTAS FRECUENTES</p>
           <SectionTitle>
             <h2 className="my-3 !leading-snug lg:max-w-sm text-center lg:text-left">
-              Dudas sobre tu alquiler con IoTCAR
+              Dudas sobre tu alquiler con IoTCar
             </h2>
           </SectionTitle>
           <p className="lg:mt-10 text-foreground-accent text-center lg:text-left">

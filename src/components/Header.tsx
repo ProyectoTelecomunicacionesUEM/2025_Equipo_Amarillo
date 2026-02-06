@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 
@@ -12,20 +12,35 @@ import { menuItems } from '@/data/menuItems';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dark, setDark] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  // Cargar tema guardado (si existe)
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') setDark(true);
+  }, []);
+
+  // Aplicar tema y guardarlo
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }, [dark]);
+
+  const toggleTheme = () => setDark((v) => !v);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <Container className="!px-0">
-        <nav className="shadow-md bg-white/90 backdrop-blur mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+        <nav className="shadow-md bg-white/90 backdrop-blur mx-auto flex justify-between items-center py-2 px-5 md:py-7">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/images/Logotipo_OFICIAL.webp"
-              alt="IoTCAR logo"
+              alt="IoTCar logo"
               width={28}
               height={28}
               className="min-w-fit"
@@ -49,6 +64,17 @@ const Header: React.FC = () => {
                 </Link>
               </li>
             ))}
+
+            {/* Toggle Dark Mode */}
+            <li>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="text-foreground border border-foreground rounded-full px-6 py-2 hover:bg-foreground hover:text-white transition-colors"
+              >
+                {dark ? 'Modo claro' : 'Modo oscuro'}
+              </button>
+            </li>
 
             <li>
               <Link
@@ -112,6 +138,19 @@ const Header: React.FC = () => {
                 </Link>
               </li>
             ))}
+
+            {/* Toggle Dark Mode (Mobile) */}
+            <li>
+              <button
+                type="button"
+                onClick={() => {
+                  toggleTheme();
+                }}
+                className="text-foreground border border-foreground rounded-full px-5 py-2 block w-fit"
+              >
+                {dark ? 'Modo claro' : 'Modo oscuro'}
+              </button>
+            </li>
 
             <li>
               <Link

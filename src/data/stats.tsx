@@ -7,7 +7,7 @@ export const stats: IStats[] = [
   {
     title: "50.000+",
     icon: <BsBarChartFill size={34} className="text-blue-500" />,
-    description: "Reservas realizadas con éxito en IoTCAR en los últimos meses."
+    description: "Reservas realizadas con éxito en IoTCar en los últimos meses."
   },
   {
     title: "4,9",

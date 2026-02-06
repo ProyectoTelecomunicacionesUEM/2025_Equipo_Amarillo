@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
         <Section
           id="testimonials"
           title="Opiniones de nuestros clientes"
-          description="Descubre cómo IoT CAR ha mejorado la experiencia de nuestros usuarios."
+          description="Descubre cómo IoTCar ha mejorado la experiencia de nuestros usuarios."
         >
           <Testimonials />
         </Section>

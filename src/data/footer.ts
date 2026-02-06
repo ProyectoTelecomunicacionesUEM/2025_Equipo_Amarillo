@@ -8,7 +8,7 @@ export const footerDetails: {
   socials: ISocials;
 } = {
   subheading:
-    "Alquiler de coches inteligente con IoT. Reserva en minutos, gestiona tu vehículo desde la app y conduce con total tranquilidad.",
+    "Alquiler de coches inteligente con IoTCar. Reserva en minutos, gestiona tu vehículo desde la app y conduce con total tranquilidad.",
 
   quickLinks: [
     {

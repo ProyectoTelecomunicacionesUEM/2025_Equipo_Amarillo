@@ -33,7 +33,7 @@ export const benefits: IBenefit[] = [
         icon: <FiCheckCircle size={26} />
       }
     ],
-    imageSrc: "/images/mockup-1.webp"
+    imageSrc: "/images/mockup-3.webp"
   },
   {
     title: "Precios claros y sin sorpresas",

@@ -13,7 +13,7 @@ export const tiers: IPricing[] = [
     ],
   },
   {
-    name: 'SUV / Familiar',
+    name: 'Familiar',
     price: 49,
     features: [
       'Vehículo espacioso para viajes en familia',

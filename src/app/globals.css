@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   MODO CLARO (por defecto)
+   ========================= */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111010;
+
   --primary: #FED835;
   --secondary: #304fff;
 
@@ -13,13 +17,29 @@
   --hero-background: #F3F3F5;
 }
 
+/* =========================
+   MODO OSCURO
+   Se activa cuando <html class="dark">
+   ========================= */
+.dark {
+  --background: #2b2a2a;
+  --foreground: #807e7e;
+
+  --primary: #FED835;
+  --secondary: #6b7cff;
+
+  --primary-accent: #e5c230;
+  --foreground-accent: #b5b5b5;
+  --hero-background: #161a22;
+}
+
 html {
   @apply scroll-smooth;
 }
 
 body {
   @apply text-lg;
-  
+
   color: var(--foreground);
   background: var(--background);
   font-family: "Source Sans 3", sans-serif;

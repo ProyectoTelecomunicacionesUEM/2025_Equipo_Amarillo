@@ -1,9 +1,9 @@
 export const siteDetails = {
-    siteName: 'IoT CAR',
-    siteUrl: 'https://IoT-CAR-omega.vercel.app/',
+    siteName: 'IoTCar',
+    siteUrl: 'https://IoT-Car-omega.vercel.app/',
     metadata: {
-        title: 'IoT CAR - Next.js and Tailwind CSS Landing Page Template',
-        description: 'IoT CAR empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
+        title: 'IoTCar - Next.js and Tailwind CSS Landing Page Template',
+        description: 'IoTCar empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
     },
     language: 'en-us',
     locale: 'en-US',
