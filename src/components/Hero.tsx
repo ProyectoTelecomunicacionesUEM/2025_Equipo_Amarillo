@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
   const startPauseTimer = () => {
     clearPauseTimer();
     pauseTimerRef.current = window.setTimeout(() => {
-      // si sigue pausado al cabo de 8s, mostramos overlay
+      // si sigue pausado al cabo de 8s, mostramos overlay (Víctor)
       const v = videoRef.current;
       if (v && v.paused) setShowOverlay(true);
     }, OVERLAY_DELAY_MS);
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
   };
 
   const handleOverlayClick = () => {
-    // Al hacer click en la imagen, quitamos overlay y reproducimos
+    // Hacemos click en la imagen, quitamos overlay y reproducimos
     setShowOverlay(false);
     clearPauseTimer();
     videoRef.current?.play();

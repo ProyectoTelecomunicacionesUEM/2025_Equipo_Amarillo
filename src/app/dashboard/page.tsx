@@ -25,9 +25,7 @@ export default async function DashboardPage() {
       <p className="text-sm text-gray-600 mt-1">Tu panel privado</p>
       <div className="mt-6 rounded-lg border p-4 bg-white/70">
         <p className="text-gray-700">
-          Aquí puedes conectar tus datos bancarios, revisar tus transacciones y automatizar tus
-          finanzas. Integra tu backend con las rutas de ejemplo <code>/api/me</code> y{" "}
-          <code>/api/transactions</code>.
+          Aquí puedes gestionar tus reservas de vehículos, revisar contratos vigentes y explorar nuestra flota disponible.
         </p>
       </div>
     </main>
