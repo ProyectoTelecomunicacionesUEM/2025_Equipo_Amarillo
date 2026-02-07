@@ -1,6 +1,7 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
-    appStoreUrl: '#',
-    googlePlayUrl: '#'
-}
+  heading: '¿Listo para conducir? Reserva tu coche con IoTCar',
+  subheading:
+    'Encuentra el vehículo ideal, elige fechas y confirma tu reserva en minutos. Precios claros, soporte 24/7 y cancelación flexible.',
+  appStoreUrl: '#',
+  googlePlayUrl: '#'
+};

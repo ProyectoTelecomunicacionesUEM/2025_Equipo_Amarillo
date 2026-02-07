@@ -1,72 +1,84 @@
-import { FiBarChart2, FiBriefcase, FiDollarSign, FiLock, FiPieChart, FiShield, FiTarget, FiTrendingUp, FiUser } from "react-icons/fi";
+import {
+  FiMapPin,
+  FiCalendar,
+  FiShield,
+  FiRefreshCw,
+  FiClock,
+  FiTruck,
+  FiDollarSign,
+  FiCheckCircle
+} from "react-icons/fi";
 
-import { IBenefit } from "@/types"
+import { IBenefit } from "@/types";
 
 export const benefits: IBenefit[] = [
-    {
-        title: "Smart Budgeting",
-        description: "Take the guesswork out of managing your money. Our AI-powered budgeting tool adapts to your lifestyle and helps you stay on track.",
-        bullets: [
-            {
-                title: "Intelligent Categorization",
-                description: "Automatically sorts your transactions for crystal-clear insights.",
-                icon: <FiBarChart2 size={26} />
-            },
-            {
-                title: "Customizable Goals",
-                description: "Set and track financial objectives that matter to you.",
-                icon: <FiTarget size={26} />
-            },
-            {
-                title: "Predictive Analysis",
-                description: "Get ahead of your finances with spending forecasts and alerts.",
-                icon: <FiTrendingUp size={26} />
-            }
-        ],
-        imageSrc: "/images/mockup-1.webp"
-    },
-    {
-        title: "Seamless Investing",
-        description: "Start building wealth today, no financial degree required. Finwise makes investing accessible and straightforward.",
-        bullets: [
-            {
-                title: "Micro-Investing",
-                description: "Begin with as little as $1 and watch your money grow.",
-                icon: <FiDollarSign size={26} />
-            },
-            {
-                title: "Expert Portfolios",
-                description: "Choose from investment strategies tailored to your risk tolerance.",
-                icon: <FiBriefcase size={26} />
-            },
-            {
-                title: "Real-Time Performance",
-                description: "Track your investments with easy-to-understand metrics and visuals.",
-                icon: <FiPieChart size={26} />
-            }
-        ],
-        imageSrc: "/images/mockup-2.webp"
-    },
-    {
-        title: "Bank-Grade Security",
-        description: "Your financial data deserves the best protection. Rest easy knowing Finwise employs cutting-edge security measures.",
-        bullets: [
-            {
-                title: "Military-Grade Encryption",
-                description: "Your information is safeguarded with the highest level of encryption.",
-                icon: <FiLock size={26} />
-            },
-            {
-                title: "Biometric Authentication",
-                description: "Access your account securely with fingerprint or facial recognition.",
-                icon: <FiUser size={26} />
-            },
-            {
-                title: "Real-Time Fraud Detection",
-                description: "Our system constantly monitors for suspicious activity to keep your money safe.",
-                icon: <FiShield size={26} />
-            }
-        ],
-        imageSrc: "/images/mockup-1.webp"
-    },
-]
+  {
+    title: "Encuentra tu coche en segundos",
+    description:
+      "Busca coches disponibles en tu ciudad, compara modelos y precios y reserva en pocos clics, sin complicaciones.",
+    bullets: [
+      {
+        title: "Búsqueda por ciudad",
+        description: "Encuentra vehículos disponibles exactamente donde los necesitas.",
+        icon: <FiMapPin size={26} />
+      },
+      {
+        title: "Fechas flexibles",
+        description: "Selecciona fácilmente la fecha de recogida y devolución.",
+        icon: <FiCalendar size={26} />
+      },
+      {
+        title: "Confirmación inmediata",
+        description: "Reserva al instante sin esperas ni llamadas.",
+        icon: <FiCheckCircle size={26} />
+      }
+    ],
+    imageSrc: "/images/mockup-3.webp"
+  },
+  {
+    title: "Precios claros y sin sorpresas",
+    description:
+      "Todos nuestros precios incluyen lo esencial para que conduzcas con tranquilidad desde el primer momento.",
+    bullets: [
+      {
+        title: "Kilometraje incluido",
+        description: "Conduce sin preocuparte por límites inesperados.",
+        icon: <FiTruck size={26} />
+      },
+      {
+        title: "Seguro incluido",
+        description: "Protección básica incluida en todas las reservas.",
+        icon: <FiShield size={26} />
+      },
+      {
+        title: "Pago seguro",
+        description: "Tus datos están protegidos en todo momento.",
+        icon: <FiDollarSign size={26} />
+      }
+    ],
+    imageSrc: "/images/mockup-2.webp"
+  },
+  {
+    title: "Flexibilidad total durante tu viaje",
+    description:
+      "Cambia tus planes sin estrés y disfruta de asistencia cuando más lo necesites.",
+    bullets: [
+      {
+        title: "Cancelación flexible",
+        description: "Cancela o modifica tu reserva fácilmente según tus planes.",
+        icon: <FiRefreshCw size={26} />
+      },
+      {
+        title: "Soporte 24/7",
+        description: "Nuestro equipo te ayuda en cualquier momento, estés donde estés.",
+        icon: <FiClock size={26} />
+      },
+      {
+        title: "Recogida y devolución sencilla",
+        description: "Proceso rápido en puntos urbanos y aeropuertos.",
+        icon: <FiMapPin size={26} />
+      }
+    ],
+    imageSrc: "/images/mockup-1.webp"
+  }
+];

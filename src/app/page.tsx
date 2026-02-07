@@ -18,17 +18,21 @@ const HomePage: React.FC = () => {
         <Benefits />
 
         <Section
+
           id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
+          title="Tarifas"
+          description="Precios claros y sin sorpresas. Paga solo por lo que necesitas."
+
         >
           <Pricing />
         </Section>
 
         <Section
+
           id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
+          title="Opiniones de nuestros clientes"
+          description="Descubre cómo IoTCar ha mejorado la experiencia de nuestros usuarios."
+
         >
           <Testimonials />
         </Section>
@@ -36,7 +40,7 @@ const HomePage: React.FC = () => {
         <FAQ />
 
         <Stats />
-        
+
         <CTA />
       </Container>
     </>

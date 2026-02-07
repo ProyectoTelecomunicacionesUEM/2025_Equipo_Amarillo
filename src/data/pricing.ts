@@ -1,37 +1,39 @@
 import { IPricing } from "@/types";
 
 export const tiers: IPricing[] = [
-    {
-        name: 'Starter',
-        price: 29,
-        features: [
-            'Basic cloud integration',
-            'Up to 5 team members',
-            '20GB storage',
-            'Email support',
-        ],
-    },
-    {
-        name: 'Pro',
-        price: 99,
-        features: [
-            'Advanced cloud integration',
-            'Up to 20 team members',
-            '100GB storage',
-            'Priority email & phone support',
-            'Advanced analytics',
-        ],
-    },
-    {
-        name: 'Enterprise',
-        price: 'Custom',
-        features: [
-            'Full cloud integration',
-            'Unlimited team members',
-            'Unlimited storage',
-            '24/7 dedicated support',
-            'Custom solutions',
-            'On-site training',
-        ],
-    },
-]
+  {
+    name: 'Económico',
+    price: 29,
+    features: [
+      'Coche compacto ideal para ciudad',
+      'Kilometraje incluido',
+      'Seguro básico incluido',
+      'Cancelación flexible',
+      'Asistencia en carretera 24/7',
+    ],
+  },
+  {
+    name: 'Familiar',
+    price: 49,
+    features: [
+      'Vehículo espacioso para viajes en familia',
+      'Kilometraje incluido',
+      'Seguro a todo riesgo',
+      'Cancelación flexible',
+      'Asistencia en carretera 24/7',
+      'Equipaje grande incluido',
+    ],
+  },
+  {
+    name: 'Premium',
+    price: 79,
+    features: [
+      'Vehículos de gama alta',
+      'Kilometraje incluido',
+      'Seguro premium con franquicia reducida',
+      'Cancelación flexible',
+      'Asistencia en carretera 24/7',
+      'Entrega prioritaria',
+    ],
+  },
+];

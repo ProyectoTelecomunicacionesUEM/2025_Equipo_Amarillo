@@ -6,10 +6,7 @@ const Testimonials: React.FC = () => {
     return (
         <div className="grid gap-14 max-w-lg w-full mx-auto lg:gap-8 lg:grid-cols-3 lg:max-w-full">
             {testimonials.map((testimonial, index) => (
-                <div
-                    key={index}
-                    className=""
-                >
+                <div key={index}>
                     <div className="flex items-center mb-4 w-full justify-center lg:justify-start">
                         <Image
                             src={testimonial.avatar}
@@ -19,11 +16,17 @@ const Testimonials: React.FC = () => {
                             className="rounded-full shadow-md"
                         />
                         <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-secondary">{testimonial.name}</h3>
-                            <p className="text-sm text-foreground-accent">{testimonial.role}</p>
+                            <h3 className="text-lg font-semibold text-secondary">
+                                {testimonial.name}
+                            </h3>
+                            <p className="text-sm text-foreground-accent">
+                                {testimonial.role}
+                            </p>
                         </div>
                     </div>
-                    <p className="text-foreground-accent text-center lg:text-left">&quot;{testimonial.message}&quot;</p>
+                    <p className="text-foreground-accent text-center lg:text-left">
+                        &quot;{testimonial.message}&quot;
+                    </p>
                 </div>
             ))}
         </div>
