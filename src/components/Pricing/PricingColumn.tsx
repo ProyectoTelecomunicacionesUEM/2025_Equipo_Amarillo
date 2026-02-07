@@ -35,7 +35,7 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
         <button
           className="w-full py-3 px-4 rounded-full transition-colors bg-primary hover:bg-primary-accent"
         >
-          Reservar ahora
+          Registrar Ahora
         </button>
       </div>
 
