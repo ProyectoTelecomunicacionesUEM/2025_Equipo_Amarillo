@@ -90,7 +90,9 @@ const Header: React.FC = () => {
                 href="#cta"
                 className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
               >
+
                 Registrarme ahora
+
               </Link>
             </li>
           </ul>

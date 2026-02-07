@@ -1,3 +1,5 @@
+'use client';
+
 import { auth } from "@/auth";
 import { pool } from "@/lib/db";
 import { NextRequest } from "next/server";
